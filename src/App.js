@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import Todolist from './Todolist';
+
 class App extends Component{
   constructor(props){
     super(props);
@@ -13,9 +15,7 @@ class App extends Component{
   }
   render(){
     return(
-      <div className="app">
-        {this.state.todos[0].area}
-      </div>
+      <Todolist value = {this.state} />
     );
   }
 }
