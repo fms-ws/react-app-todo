@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Todo from './Todo';
-class Todolist extends React.Component{
+class Todolist extends Component{
     render(){
         return(
             <div className='board'>
