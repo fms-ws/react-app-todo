@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Todolist from './TodoList';
+import TodoList from './TodoList';
 
 class App extends Component{
 
@@ -17,7 +17,7 @@ class App extends Component{
   }
   render(){
     return(
-      <Todolist value = {this.state.todos}/>
+      <TodoList value = {this.state.todos}/>
     );
   }
 }
