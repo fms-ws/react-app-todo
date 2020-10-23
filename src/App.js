@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Todolist from './TodoList';
 
 class App extends Component{
-
   constructor(props){
     super();
     const todos=[
@@ -15,9 +14,20 @@ class App extends Component{
       todos:todos,
     }
   }
+
+  add(e){
+    const newtodo = {name: e, area: 1,des: ""};
+    this.setState(state =>({
+      todos: this.state.todos.concat(newtodo)
+    }));
+  }
+
   render(){
     return(
-      <Todolist value = {this.state.todos}/>
+      <Todolist 
+        value = {this.state.todos}
+        add = {e => this.add(e)}
+      />
     );
   }
 }
