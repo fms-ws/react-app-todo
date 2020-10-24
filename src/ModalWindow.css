@@ -1,0 +1,16 @@
+ul li {
+  list-style: none;
+}
+label {
+  margin-right: 10px;
+  width: 100px;
+  float: left;
+}
+ul {
+  width: 500px;
+  margin: 0 auto;
+}
+button {
+  display: block;
+  margin: 0 auto;
+}
