@@ -15,9 +15,18 @@ class App extends Component{
       todos:todos,
     }
   }
+  add(e){
+    const newtodo = {name: e, area: 1,des: ""};
+    this.setState(state =>({
+      todos: this.state.todos.concat(newtodo)
+    }));
+  }
   render(){
     return(
-      <TodoList value = {this.state.todos}/>
+      <TodoList 
+        value = {this.state.todos}
+        add={e=>this.add(e)}
+        />
     );
   }
 }
