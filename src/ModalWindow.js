@@ -1,5 +1,6 @@
 import React from 'react';
 import Modal from 'react-modal';
+import './ModalWindow.css'
 const customStyles = {
   content : {
     top                   : '50%',
@@ -7,8 +8,8 @@ const customStyles = {
     right                 : 'auto',
     bottom                : 'auto',
     marginRight           : '-50%',
-    transform             : 'translate(-50%, -50%)'
- }
+    transform             : 'translate(-50%, -50%)',
+  }
 };
 
 Modal.setAppElement('#root') //任意のアプリを設定する　create-react-appなら#root
@@ -19,15 +20,11 @@ class ModalWindow extends React.Component {
       modalIsOpen: false
     };
     this.openModal = this.openModal.bind(this);
-    this.afterOpenModal = this.afterOpenModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
 
   }
   openModal() {
     this.setState({modalIsOpen: true});
-  }
-  afterOpenModal() {
-    this.subtitle.style.color = '#f00';
   }
   closeModal() {
     this.setState({modalIsOpen: false});
@@ -42,11 +39,15 @@ class ModalWindow extends React.Component {
           onAfterOpen={this.afterOpenModal}
           onRequestClose={this.closeModal}
           style={customStyles}
-          contentLabel="Example Modal"
+          contentLabel="Edit Modal"
         >
-          <h2 ref={subtitle => this.subtitle = subtitle}>{this.props.name}</h2>
-          <div>{this.props.des}</div>
-            <button onClick={this.closeModal}>close</button>
+          <form >
+            <ul>
+              <li><label>タスク名</label><input type="text" ref={subtitle => this.subtitle = subtitle} value={this.props.name}/></li>
+              <li><label>詳細</label><textarea>{this.props.des}</textarea></li>
+            </ul>
+            <button onClick={this.closeModal}>保存</button>
+          </form>
         </Modal>
       </div>
     );
