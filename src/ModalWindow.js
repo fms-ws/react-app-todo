@@ -29,7 +29,9 @@ class ModalWindow extends React.Component {
   closeModal() {
     this.setState({modalIsOpen: false});
   }
-  
+  closeModalSave(id,name,des) {
+    this.setState({modalIsOpen: false});
+  }
   render() {
     return (
       <div>
@@ -46,7 +48,7 @@ class ModalWindow extends React.Component {
               <li><label>タスク名</label><input type="text" ref={subtitle => this.subtitle = subtitle} value={this.props.name}/></li>
               <li><label>詳細</label><textarea>{this.props.des}</textarea></li>
             </ul>
-            <button onClick={this.closeModal}>保存</button>
+            <button onClick={this.closeModalSave()}>保存</button>
           </form>
         </Modal>
       </div>
